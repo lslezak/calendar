@@ -30,3 +30,10 @@ COPY administration.yml /etc/davical/administration.yml
 EXPOSE 80
 
 CMD [ "/usr/sbin/start_apache2", "-DFOREGROUND", "-k", "start" ]
+
+RUN zypper --non-interactive in --no-recommends unzip
+RUN wget https://www.inf-it.com/CalDavZAP_0.13.1.zip \
+    && unzip CalDavZAP_0.13.1.zip \
+    && mv caldavzap/ /usr/share/davical/htdocs \
+    && chown -R root:wwwrun /usr/share/davical/htdocs/caldavzap \
+    && rm CalDavZAP_0.13.1.zip
