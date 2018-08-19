@@ -1,0 +1,17 @@
+
+admin_db_user: davical_dba
+
+## The password.  Leading and trailling spaces are stripped, so don't do that
+#admin_db_pass: very, very 5ecret
+
+## The hostname/IP.  Not needed if using unix sockets to a local server.
+admin_db_host: postgres
+
+## The database name
+admin_db_name: davical
+
+## The database port.  Not needed if it is the default '5432'
+#admin_db_port: 5432
+
+## The name of the database user the web application uses to connect
+app_db_user: davical_app
