@@ -9,17 +9,22 @@ services:
     depends_on:
       - postgres
     restart: on-failure
-  # agendav:
-  #   image: calendar-agendav
-  #   build:
-  #     context: agendav
-  #   # command: bundle exec rake jobs:work
-  #   environment:
-  #     # - RAILS_LOG_TO_STDOUT=1
-  #     # - RAILS_ENV
-  #   depends_on:
-  #     - postgres
-  #   restart: on-failure
+  agendav:
+    image: calendar-agendav
+    build:
+      context: agendav-debian
+    environment:
+      - AGENDAV_SERVER_NAME=127.0.0.1
+      - AGENDAV_TITLE=Calendar
+      - AGENDAV_FOOTER=Agendav
+      - AGENDAV_ENC_KEY=my_encrypt10n_k3y
+      - AGENDAV_CALDAV_SERVER=http://davical
+      - AGENDAV_TIMEZONE=Europe/Prague
+      - AGENDAV_LANG=en
+      - AGENDAV_LOG_DIR=/tmp/
+    ports:
+      - "80:80"
+    restart: on-failure
   postgres:
     image: calendar-postgres
     build:
