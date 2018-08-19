@@ -15,7 +15,7 @@ and create the resources in the [DaviCal](https://www.davical.org/) server.
 ## Later Start
 
 To start the application run `docker-compose up` (to run the application in
-the foreground) or `docker-compose start` (to run it in backround).
+the foreground) or `docker-compose start` (to run it in background).
 
 See more details in the [docker-compose documentation](
 https://docs.docker.com/compose/reference/overview/).
